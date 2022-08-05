@@ -1,6 +1,0 @@
-[generators]
-xmake
-[requires]
-range-v3/0.11.0
-[build_requires]
-xmake_generator/0.1.0@bincrafters/testing
