@@ -2,21 +2,31 @@ set_languages("c++20")
 
 add_rules("mode.debug", "mode.release", "mode.coverage")
 add_requires("fmt", {alias = "fmt"})
-add_requires("conan::doctest/2.4.8", {alias = "doctest"})
+add_requires("doctest", {alias = "doctest"})
 add_requires("conan::range-v3/0.11.0", {alias = "range-v3"})
 
 -- header only package
+target("Fractions")
+    set_kind("static")
+    add_includedirs("include", {public = true})
+    add_packages("range-v3")
+    if is_plat("linux") then
+        add_cxflags("-fconcepts", {force = true})
+    elseif is_plat("windows") then
+        add_cxflags("/W4 /WX /wd4819 /wd4127", {force = true})
+    end
 
-target("test")
+target("test_frac")
     set_kind("binary")
+    add_deps("Fractions")
     add_includedirs("include", {public = true})
     add_files("tests/*.cpp")
+    add_packages("fmt", "doctest", "range-v3")
     if is_plat("linux") then
         add_cxflags("-fconcepts", {force = true})
     elseif is_plat("windows") then
         add_cxflags("/W4 /WX /wd4819", {force = true})
     end
-    add_packages("fmt", "doctest", "range-v3")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
