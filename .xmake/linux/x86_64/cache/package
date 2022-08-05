@@ -1,0 +1,52 @@
+{
+    fmt = {
+        linkdirs = "/home/lubuntu/.config/.xmake/packages/f/fmt/8.1.1/212ea05ee1514fb8bc1d6d9f35de8988/lib",
+        links = "fmt",
+        __extrainfo = {
+            alias = "fmt"
+        },
+        __requirestr = "fmt",
+        version = "8.1.1",
+        static = true,
+        __installdir = "/home/lubuntu/.config/.xmake/packages/f/fmt/8.1.1/212ea05ee1514fb8bc1d6d9f35de8988",
+        envs = {
+            LD_LIBRARY_PATH = {
+                "/home/lubuntu/.config/.xmake/packages/f/fmt/8.1.1/212ea05ee1514fb8bc1d6d9f35de8988/lib",
+                "/home/lubuntu/.config/.xmake/packages/c/cmake/3.22.1/0f13fccf1bec481db8a56b7a3c0eff80/lib"
+            },
+            PATH = {
+                "/home/lubuntu/.config/.xmake/packages/c/cmake/3.22.1/0f13fccf1bec481db8a56b7a3c0eff80/bin"
+            }
+        },
+        libfiles = "/home/lubuntu/.config/.xmake/packages/f/fmt/8.1.1/212ea05ee1514fb8bc1d6d9f35de8988/lib/libfmt.a",
+        sysincludedirs = "/home/lubuntu/.config/.xmake/packages/f/fmt/8.1.1/212ea05ee1514fb8bc1d6d9f35de8988/include",
+        __enabled = true
+    },
+    doctest = {
+        linkdirs = "/home/lubuntu/.conan/data/doctest/2.4.8/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib",
+        envs = {
+            LD_LIBRARY_PATH = {
+                "/home/lubuntu/Documents/github/xmake/fractions-xmake/build/.packages/c/conan_doctest/2.4.8/latest/0a1de3a1ca944f1ba51b4478cf3b550d/lib"
+            }
+        },
+        __extrainfo = {
+            alias = "doctest"
+        },
+        __requirestr = "conan::doctest/2.4.8",
+        sysincludedirs = "/home/lubuntu/.conan/data/doctest/2.4.8/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include",
+        __enabled = true
+    },
+    ["range-v3"] = {
+        __enabled = true,
+        __extrainfo = {
+            alias = "range-v3"
+        },
+        __requirestr = "conan::range-v3/0.11.0",
+        sysincludedirs = "/home/lubuntu/.conan/data/range-v3/0.11.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include",
+        envs = {
+            LD_LIBRARY_PATH = {
+                "/home/lubuntu/Documents/github/xmake/fractions-xmake/build/.packages/c/conan_range-v3/0.11.0/latest/0a1de3a1ca944f1ba51b4478cf3b550d/lib"
+            }
+        }
+    }
+}
