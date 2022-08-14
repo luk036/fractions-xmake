@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 #include <doctest/doctest.h>
+
 #include <fractions/fractions.hpp>
 
 using fun::Fraction;
