@@ -7,6 +7,6 @@
 using fun::Fraction;
 
 TEST_CASE("it works") {
-    auto p = Fraction<int>{30, 40};
-    CHECK_EQ(p, Fraction<int>{3, 4});
+  auto p = Fraction<int>{30, 40};
+  CHECK_EQ(p, Fraction<int>{3, 4});
 }
