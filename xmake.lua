@@ -3,7 +3,7 @@ set_languages("c++20")
 add_rules("mode.debug", "mode.release", "mode.coverage")
 -- add_requires("fmt", {alias = "fmt"})
 add_requires("doctest", {alias = "doctest"})
-add_requires("conan::range-v3/0.11.0", {alias = "range-v3"})
+add_requires("range-v3", {alias = "range-v3"})
 
 -- header only package
 target("Fractions")
@@ -24,7 +24,7 @@ target("test_frac")
     add_packages("doctest", "range-v3")
     set_warnings("all", "error")
     if is_plat("linux") then
-        add_cxflags("-fconcepts", {force = true})
+        -- add_cxflags("-fconcepts", {force = true})
     elseif is_plat("windows") then
         add_cxflags("/W4 /WX /wd4819", {force = true})
     end
