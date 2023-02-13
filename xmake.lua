@@ -9,6 +9,7 @@ add_requires("range-v3", {alias = "range-v3"})
 target("Fractions")
     set_kind("static")
     add_includedirs("include", {public = true})
+    add_files("src/*.cpp")
     add_packages("range-v3")
     if is_plat("linux") then
         add_cxflags("-fconcepts", {force = true})
