@@ -6,20 +6,20 @@ add_requires("doctest", {alias = "doctest"})
 add_requires("range-v3", {alias = "range-v3"})
 
 -- header only package
-target("Fractions")
-    set_kind("static")
-    add_includedirs("include", {public = true})
-    add_files("src/*.cpp")
-    add_packages("range-v3")
-    if is_plat("linux") then
-        add_cxflags("-fconcepts", {force = true})
-    elseif is_plat("windows") then
-        add_cxflags("/W4 /WX /wd4819 /wd4127", {force = true})
-    end
+-- target("Fractions")
+--     set_kind("static")
+--     add_includedirs("include", {public = true})
+--     add_files("src/*.cpp")
+--     add_packages("range-v3")
+--     if is_plat("linux") then
+--         add_cxflags("-fconcepts", {force = true})
+--     elseif is_plat("windows") then
+--         add_cxflags("/W4 /WX /wd4819 /wd4127", {force = true})
+--     end
 
 target("test_frac")
     set_kind("binary")
-    add_deps("Fractions")
+    -- add_deps("Fractions")
     add_includedirs("include", {public = true})
     add_files("tests/*.cpp")
     add_packages("doctest", "range-v3")
