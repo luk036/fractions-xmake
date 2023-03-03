@@ -1,4 +1,3 @@
-// -*- coding: utf-16 -*-
 #pragma once
 
 /** @file include/fractions.hpp
@@ -11,23 +10,32 @@
 #include <type_traits>
 #include <utility>
 
-#include "common_concepts.h"
+// #include "common_concepts.h"
 
 namespace fun {
 
 /**
- * @brief absolute
+ * @brief absolute (unsigned)
  *
  * @tparam T
  * @param[in] a
- * @return T
  */
-template <typename T> inline constexpr auto abs(const T &a) -> T {
-  if constexpr (std::is_unsigned_v<T>) {
-    return a;
-  } else {
-    return (a < T(0)) ? -a : a;
-  }
+template <typename T>
+constexpr inline auto abs(const T &a) ->
+    typename std::enable_if<std::is_unsigned<T>::value, T>::type {
+  return a;
+}
+
+/**
+ * @brief absolute (signed)
+ *
+ * @tparam T
+ * @param[in] a
+ */
+template <typename T>
+constexpr inline auto abs(const T &a) ->
+    typename std::enable_if<!std::is_unsigned<T>::value, T>::type {
+  return (a < T(0)) ? -a : a;
 }
 
 /**
@@ -38,7 +46,7 @@ template <typename T> inline constexpr auto abs(const T &a) -> T {
  * @param[in] __n
  * @return _Mn
  */
-template <Integral _Mn>
+template <typename _Mn>
 inline constexpr auto gcd_recur(const _Mn &__m, const _Mn &__n) -> _Mn {
   if (__n == 0) {
     return abs(__m);
@@ -54,7 +62,7 @@ inline constexpr auto gcd_recur(const _Mn &__m, const _Mn &__n) -> _Mn {
  * @param[in] __n
  * @return _Mn
  */
-template <Integral _Mn>
+template <typename _Mn>
 inline constexpr auto gcd(const _Mn &__m, const _Mn &__n) -> _Mn {
   if (__m == 0) {
     return abs(__n);
@@ -70,7 +78,7 @@ inline constexpr auto gcd(const _Mn &__m, const _Mn &__n) -> _Mn {
  * @param[in] __n
  * @return _Mn
  */
-template <Integral _Mn>
+template <typename _Mn>
 inline constexpr auto lcm(const _Mn &__m, const _Mn &__n) -> _Mn {
   if (__m == 0 || __n == 0) {
     return 0;
@@ -83,7 +91,7 @@ inline constexpr auto lcm(const _Mn &__m, const _Mn &__n) -> _Mn {
  *
  * @tparam Z
  */
-template <Integral Z> struct Fraction {
+template <typename Z> struct Fraction {
   Z _num;
   Z _den;
 
@@ -413,7 +421,7 @@ template <Integral Z> struct Fraction {
    * @brief reciprocal
    *
    */
-  constexpr void reciprocal() noexcept(std::is_nothrow_swappable_v<Z>) {
+  constexpr void reciprocal() {
     std::swap(this->_num, this->_den);
     this->normalize1();
   }
@@ -747,6 +755,6 @@ template <Integral Z> struct Fraction {
 };
 
 // For template deduction
-// Integral{Z} Fraction(const Z &, const Z &) noexcept -> Fraction<Z>;
+// typename{Z} Fraction(const Z &, const Z &) noexcept -> Fraction<Z>;
 
 } // namespace fun

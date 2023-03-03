@@ -1,9 +1,9 @@
-set_languages("c++20")
+set_languages("c++14")
 
 add_rules("mode.debug", "mode.release", "mode.coverage")
 -- add_requires("fmt", {alias = "fmt"})
 add_requires("doctest", {alias = "doctest"})
-add_requires("range-v3", {alias = "range-v3"})
+-- add_requires("range-v3", {alias = "range-v3"})
 
 if is_mode("coverage") then
     add_cxflags("-ftest-coverage", "-fprofile-arcs", {force = true})
@@ -26,7 +26,7 @@ target("test_frac")
     -- add_deps("Fractions")
     add_includedirs("include", {public = true})
     add_files("tests/*.cpp")
-    add_packages("doctest", "range-v3")
+    add_packages("doctest")
     set_warnings("all", "error")
     if is_plat("linux") then
         -- add_cxflags("-fconcepts", {force = true})

@@ -1,0 +1,11 @@
+[
+{
+  "directory": "/home/lubuntu/Documents/github/xmake/fractions-xmake",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-Wall", "-Werror", "-O3", "-std=c++14", "-Iinclude", "-I", "/home/lubuntu/.config/.xmake/packages/d/doctest/2.4.9/a6fdd16942484cf28de7ce2a2831258f/include", "-DNDEBUG", "-o", "build/.objs/test_frac/linux/x86_64/release/tests/test_frac.cpp.o", "tests/test_frac.cpp"],
+  "file": "tests/test_frac.cpp"
+},
+{
+  "directory": "/home/lubuntu/Documents/github/xmake/fractions-xmake",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-Wall", "-Werror", "-O3", "-std=c++14", "-Iinclude", "-I", "/home/lubuntu/.config/.xmake/packages/d/doctest/2.4.9/a6fdd16942484cf28de7ce2a2831258f/include", "-DNDEBUG", "-o", "build/.objs/test_frac/linux/x86_64/release/tests/test_main.cpp.o", "tests/test_main.cpp"],
+  "file": "tests/test_main.cpp"
+}]
